@@ -2,3 +2,4 @@ __pycache__
 salary.db
 *env
 .idea
+bd_data
