@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.db import models
 
 class Author(models.Model):
@@ -11,10 +10,11 @@ class Author(models.Model):
 
 class Quote(models.Model):
     text = models.TextField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, default =None, null =True)
     tags = models.ManyToManyField('Tag')
+    created_at = models.DateTimeField(auto_now_add=True)
 
 class Tag(models.Model):
-    name = models.CharField(max_length=30, null =False, )
+    name = models.CharField(max_length=35, null =False, unique = True)
 
 # Create your models here.

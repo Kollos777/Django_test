@@ -1,6 +1,5 @@
-from pymongo import MongoClient
+from django.db import connections
 
 def mydatabase():
-    client = MongoClient('mongodb+srv://kollos:B4tsy9vyOKU4kD8D@nosql.3ivomcd.mongodb.net/')
-    db = client.mydatabase
-    return db
+    conn = connections['default'].cursor()
+    return conn
